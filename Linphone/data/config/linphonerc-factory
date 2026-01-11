@@ -1,5 +1,5 @@
 [account_creator]
-backend=1
+backend=0
 # 1 means FlexiAPI, 0 is XMLRPC
 url=https://subscribe.linphone.org/api/
 # replace above URL by https://staging-subscribe.linphone.org/api/ for testing
@@ -54,6 +54,7 @@ ec_calibrator_cool_tones=1
 ec_filter=MSWebRTCAEC
 
 [ui]
+assistant_hide_create_account=1
 assistant_supports_phone_numbers/readonly=0
 use_qrcode=0
 
