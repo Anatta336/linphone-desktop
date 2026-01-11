@@ -693,7 +693,7 @@
         <location filename="../../core/App.cpp" line="460"/>
         <source>info_popup_new_version_available_message</source>
         <extracomment>A new version of NM PBX (%1) is available. %2</extracomment>
-        <translation>A new version of NM PBX (%1) is available at %1</translation>
+        <translation>A new version of NM PBX (%1) is available. %2</translation>
     </message>
     <message>
         <location filename="../../core/App.cpp" line="466"/>
