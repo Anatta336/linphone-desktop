@@ -4,6 +4,14 @@ import QtQuick
 QtObject {
     property var themes: {
         return {
+            "standard": {
+                "main100": "#d8e8ad",
+                "main200": "#a4cd3a",
+                "main300": "#73bd45",
+                "main500": "#24af4b",
+                "main600": "#197c35",
+                "main700": "#0e491f"
+            },
             "orange": {
                 "main100": "#FFEACB",
                 "main200": "#FFD098",
