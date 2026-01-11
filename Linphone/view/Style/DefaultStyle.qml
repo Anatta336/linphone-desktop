@@ -65,12 +65,12 @@ QtObject {
     // Warning: Qt 6.8.1 (current version) and previous versions, Qt only support COLRv0 fonts. Don't try to use v1.
     property string emojiFont: "Noto Color Emoji"
     property string flagFont: "Noto Color Emoji"
-    property string defaultFont: "Noto Sans"
+    property string defaultFont: "Poppins"
 
     property var numericPadPressedButtonColor: "#EEF7F8"
 
     property var groupCallButtonColor: "#EEF7F8"
 
     property var placeholders: '#CACACA'	// No name in design
-    
+
 }

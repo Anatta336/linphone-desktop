@@ -208,8 +208,10 @@ Make two edits to prevent the build system from searching for and linking the ma
 From within the build directory, run this to configure the build process.
 
 ```cmd
-cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON
 ```
+
+If it complains about an old CMake version being used, add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`
 
 This will take around 15 minutes the first time, and 5 minutes after that.
 
