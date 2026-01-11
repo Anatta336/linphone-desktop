@@ -2,6 +2,19 @@
 
 This is for Windows 11 64-bit and was last updated Jan/2026.
 
+Many of these steps will trigger Windows to ask you to provide credentials for a user with admininstrator access, which you should do. Unless specifically stated, you don't need to run command prompts (or other operations) as administrator.
+
+## Troubleshooting tips
+
+Problems often come down to what the system is trying to run based on `Path`:
+
+- Ultimately we need these dependencies to be available in a Windows Command Prompt.
+- If you running `doxygen` in `cmd.exe` fails, it'll likely fail for the make process too.
+- Use `which doxygen` to check which install location the system is using.
+- If `which` shows something unexpected you may need to add things to or re-arrange the Windows system environment variable named `Path` (works very much like `PATH` in the Linux world.)
+- Ordering matters in `Path`. It'll work from first to last, until it finds a matching name.
+- In most cases you'll want the MSYS2 directories to be last in the `Path`.
+
 ## MSYS2
 
 Install https://www.msys2.org/
@@ -38,6 +51,8 @@ C:\msys64\
 C:\msys64\usr\bin
 ```
 
+Prefer to keep these three entries at the end of your `Path` when adding others later.
+
 ## Python
 
 Download and install Python 3 for Windows, using the Python install manager: https://www.python.org/downloads/windows/
@@ -63,18 +78,25 @@ Install Python dependencies this project needs:
 python -m pip install pystache six
 ```
 
-### AI suggested
-
-After installation, open a new Command Prompt (regular cmd, not MSYS2) and install the required packages:
-```cmd
-python -m pip install pystache six
-```
-
 You can check they're installed:
 ```cmd
 python -c "import pystache; print(pystache.__version__)"
 python -c "import six; print(six.__version__)"
 ```
+
+## Doxygen
+
+Download and install Doxygen.
+
+Recommend using `winget` if you have it available:
+
+```cmd
+winget install DimitriVanHeesch.Doxygen
+```
+
+Can also get it via https://github.com/doxygen/doxygen although the site it links to with an installer to download is full of ads, and the installer is not signed.
+
+You want to end up with the install location (probably `C:\Program Files\doxygen\bin`) in your system Path for Windows. The installer should do that for you - either via winget or downloaded yourself.
 
 ## Visual Studio
 
@@ -137,6 +159,8 @@ Run "x64 Native Tools Command Prompt for VS 2022" from Windows start menu. Run t
 C:\Qt\6.10.1\msvc2022_64\bin\qtenv2.bat
 ```
 
+This sets environment variables for Qt, and needs to be done **each time** you start a command prompt session to build the project. Don't worry about the "Remember to call vcvarsall.bat" that has effectively been done by using "x64 Native Tools Command Prompt for VS 2022" instead of a normal command prompt.
+
 Navigate to where you cloned the repository, for example:
 ```cmd
 cd C:\Users\sam.driver\Code\linphone-desktop
@@ -149,37 +173,11 @@ mkdir build
 cd build
 ```
 
-### With Visual Studio generator
-
-From within the build directory, run this to configure the build process.
-
-```cmd
-cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON
-```
-
-This will take around 15 minutes the first time, and 5 minutes after that.
-
-Still in the build directory, run the build:
-
-```cmd
-cmake --build . --config RelWithDebInfo --verbose
-```
-
-TODO: removed `--parallel 10` added `--verbose`
-
-Once the build is done successfully (see the known issue below if it failed) run the install step:
-
-```cmd
-cmake --install . --config RelWithDebInfo
-```
-
-The final executable to actually should be: `build\OUTPUT\bin\linphone.exe`
-
 ### Known Issue: `m.lib` linker error
 
-If the build fails with `LINK : fatal error LNK1104: cannot open file 'm.lib'`, this is because the linphone-sdk's mediastreamer2 component tries to link against the Unix math library (`libm`) which doesn't exist on Windows with MSVC (math functions are built into the C runtime).
+Both build approaches can fail with `LINK : fatal error LNK1104: cannot open file 'm.lib'`, this is because the linphone-sdk's mediastreamer2 component tries to link against the Unix math library (`libm`) which doesn't exist on Windows with MSVC (math functions are built into the C runtime).
 
-**Workaround:** Make two edits to prevent the build system from searching for and linking the math library on Windows with MSVC:
+Make two edits to prevent the build system from searching for and linking the math library on Windows with MSVC:
 
 1. Edit `external\linphone-sdk\mediastreamer2\src\CMakeLists.txt` around line 23. Change:
    ```cmake
@@ -195,42 +193,67 @@ If the build fails with `LINK : fatal error LNK1104: cannot open file 'm.lib'`, 
 2. Edit `external\linphone-sdk\mediastreamer2\CMakeLists.txt` around line 462. Change:
    ```cmake
    if(LIBM)
-   	list(APPEND LINK_LIBS m)
+       list(APPEND LINK_LIBS m)
    endif()
    ```
    To:
    ```cmake
    if(LIBM AND NOT MSVC)
-   	list(APPEND LINK_LIBS m)
+       list(APPEND LINK_LIBS m)
    endif()
    ```
 
-After making both changes, run the cmake build command again (no need to re-run the cmake configuration step).
-
-
-### With Ninja generator (faster, if it works)
+### With Visual Studio generator
 
 From within the build directory, run this to configure the build process.
 
 ```cmd
-cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DENABLE_WINDOWS_TOOLS_CHECK=ON
+cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 ```
 
 This will take around 15 minutes the first time, and 5 minutes after that.
 
-- `-G "Ninja"` use the Ninja generator which should be faster. Could remove that and add `-A x64` instead.
-- `-DCMAKE_BUILD_TYPE=RelWithDebInfo` to build as "debug release" which is recommended. Shouldn't be meaningfully different performance than release without debug info.
-- `-DENABLE_WINDOWS_TOOLS_CHECK=ON` to install any missing tools/packages.
-
-Still in the build directory, run the build:
+Still in the build directory, run the build: (To help identify issues remove `--parallel 10` add `--verbose`)
 
 ```cmd
-cmake --build . --config RelWithDebInfo
+cmake --build . --config RelWithDebInfo --parallel 10
 ```
 
-TODO: removed `--parallel 10`
+Once the build is done successfully run the install step:
 
-### Known Issue: `m.lib` linker error
+```cmd
+cmake --install . --config RelWithDebInfo
+```
 
-If the build fails with `LINK : fatal error LNK1104: cannot open file 'm.lib'`, see the workaround described in the "Visual Studio generator" section above.
+The final executable to actually run should be: `build\OUTPUT\bin\linphone.exe`
 
+### With Ninja generator (faster, if it works)
+
+It should be possible to build faster using Ninja, but haven't had success. These instructions are included for reference.
+
+From within the build directory, run this to configure the build process.
+
+```cmd
+cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DENABLE_WINDOWS_TOOLS_CHECK=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+```
+
+This will take around 15 minutes the first time, and 5 minutes after that.
+
+- `-G "Ninja"` use the Ninja generator which should be faster.
+- `-DCMAKE_BUILD_TYPE=RelWithDebInfo` to build as "debug release" which is recommended. Shouldn't be meaningfully different performance than release without debug info.
+- `-DENABLE_WINDOWS_TOOLS_CHECK=ON` to install any missing tools/packages.
+- `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` work around some makefiles being for earlier versions.
+
+Still in the build directory, run the build: (To help identify issues remove `--parallel 10` add `--verbose`)
+
+```cmd
+cmake --build . --config RelWithDebInfo --parallel 10
+```
+
+Once the build is done successfully run the install step:
+
+```cmd
+cmake --install . --config RelWithDebInfo
+```
+
+The final executable to actually run should be: `build\OUTPUT\bin\linphone.exe`
