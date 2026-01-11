@@ -71,7 +71,7 @@ public:
 	static constexpr char PasswordRecoveryUrl[] = "https://subscribe.linphone.org/recovery/email";
 	static constexpr char CguUrl[] = "https://www.linphone.org/en/terms-of-use/";
 	static constexpr char PrivatePolicyUrl[] = "https://www.linphone.org/en/privacy-policy/";
-	static constexpr char ContactUrl[] = "https://www.linphone.org/contact";
+	static constexpr char ContactUrl[] = "https://netmatters.co.uk/contact-us";
 	static constexpr char TranslationUrl[] = "https://weblate.linphone.org/projects/linphone-desktop/";
 
 	static constexpr int MaxMosaicParticipants =
