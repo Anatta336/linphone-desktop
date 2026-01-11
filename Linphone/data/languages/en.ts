@@ -280,7 +280,7 @@
     <message>
         <location filename="../../view/Page/Layout/Settings/AccountSettingsGeneralLayout.qml" line="201"/>
         <source>manage_account_delete_message</source>
-        <translation>Your account will be removed from this Linphone client, but you will remain connected on your other clients</translation>
+        <translation>Your account will be removed from this NM PBX client, but you will remain connected on your other clients</translation>
     </message>
     <message>
         <location filename="../../view/Page/Layout/Settings/AccountSettingsGeneralLayout.qml" line="220"/>
@@ -692,8 +692,8 @@
     <message>
         <location filename="../../core/App.cpp" line="460"/>
         <source>info_popup_new_version_available_message</source>
-        <extracomment>A new version of Linphone (%1) is available. %2</extracomment>
-        <translation>A new version of Linphone (%1) is available at %1</translation>
+        <extracomment>A new version of NM PBX (%1) is available. %2</extracomment>
+        <translation>A new version of NM PBX (%1) is available at %1</translation>
     </message>
     <message>
         <location filename="../../core/App.cpp" line="466"/>
@@ -3308,7 +3308,7 @@ Only your correspondent can decrypt them.</translation>
     <message>
         <location filename="../../view/Page/Layout/Settings/ContactsSettingsLayout.qml" line="22"/>
         <source>settings_contacts_carddav_subtitle</source>
-        <translation>Add a CardDAV address book to sync your Linphone contacts with a third-party address book.</translation>
+        <translation>Add a CardDAV address book to sync your NM PBX contacts with a third-party address book.</translation>
     </message>
     <message>
         <location filename="../../view/Page/Layout/Settings/ContactsSettingsLayout.qml" line="42"/>
@@ -5568,8 +5568,8 @@ To enable them in a commercial project, please contact us.</translation>
     <message>
         <location filename="../../view/Page/Form/Login/SIPLoginPage.qml" line="133"/>
         <source>assistant_third_party_sip_account_create_linphone_account</source>
-        <extracomment>&quot;Créer un compte linphone&quot;</extracomment>
-        <translation>Create a linphone account</translation>
+        <extracomment>&quot;Créer un compte NM PBX&quot;</extracomment>
+        <translation>Create a NM PBX account</translation>
     </message>
     <message>
         <location filename="../../view/Page/Form/Login/SIPLoginPage.qml" line="145"/>

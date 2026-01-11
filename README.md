@@ -1,20 +1,20 @@
-# Linphone Desktop
+# NM PBX Desktop
 
-Linphone is an open source softphone for voice and video over IP calling and instant messaging.
+NM PBX is a softphone application for voice and video over IP calling and instant messaging, provided by Netmatters.
 
 It is fully SIP-based, for all calling, presence and IM features.
 
-General description is available from [Linphone web site](https://www.linphone.org/linphone-softphone/)
+This software is based on the open source Linphone project. For more information about the original Linphone project, visit [Linphone web site](https://www.linphone.org/linphone-softphone/)
 
 ### License
 
-Copyright © Belledonne Communications
+Copyright © Netmatters
 
-Linphone is dual licensed, and is available either :
+This software is based on Linphone, which is dual licensed:
 
  - under a [GNU/GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html), for free (open source). Please make sure that you understand and agree with the terms of this license before using it (see LICENSE file for details).
 
- - under a proprietary license, for a fee, to be used in closed source applications. Contact [Belledonne Communications](https://www.linphone.org/contact) for any question about costs and services.
+ - under a proprietary license from Belledonne Communications, for a fee, to be used in closed source applications. Contact [Belledonne Communications](https://www.linphone.org/contact) for any question about costs and services.
 
 ### Documentation
 
