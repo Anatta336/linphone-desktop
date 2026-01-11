@@ -40,6 +40,12 @@
 #include "core/event-count-notifier/EventCountNotifierSystemTrayIcon.hpp"
 #endif // if defined(Q_OS_MACOS)
 
+// Forward declaration for linphone C API function (public but in private_functions.h)
+extern "C" {
+	typedef struct _LinphoneCore LinphoneCore;
+	int linphone_remote_provisioning_load_file(LinphoneCore *lc, const char *file_path);
+}
+
 // =============================================================================
 DEFINE_ABSTRACT_OBJECT(CoreModel)
 
@@ -256,8 +262,30 @@ bool CoreModel::setFetchConfig(QString filePath) {
 	if (!filePath.isEmpty()) {
 		if (mCore) {
 			filePath.replace('\\', '/');
-			QUrl url(filePath);
-			fetched = mCore->setProvisioningUri(Utils::appStringToCoreString(url.toEncoded())) == 0;
+
+			// On Windows, belle-sip cannot parse file:// URIs with drive letters
+			// Use direct file loading instead
+			if (filePath.startsWith("file://", Qt::CaseInsensitive)) {
+				QString actualPath = filePath.mid(7); // Remove "file://"
+#ifdef Q_OS_WIN
+				// On Windows, file:///C:/path becomes /C:/path after removing file://
+				// We need to remove the leading slash if there's a drive letter
+				if (actualPath.startsWith("/") && actualPath.length() > 2 && actualPath[2] == ':') {
+					actualPath = actualPath.mid(1);
+				}
+#endif
+				qDebug() << "Loading config file directly from:" << actualPath;
+
+				int result = linphone_remote_provisioning_load_file(mCore->cPtr(), actualPath.toUtf8().constData());
+				fetched = (result == 0);
+				if (!fetched) {
+					qWarning() << "Failed to load provisioning file, error code:" << result;
+				}
+			} else {
+				// Use normal provisioning URI for HTTP/HTTPS
+				QUrl url(filePath);
+				fetched = mCore->setProvisioningUri(Utils::appStringToCoreString(url.toEncoded())) == 0;
+			}
 		}
 	}
 	if (!fetched) {

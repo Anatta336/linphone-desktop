@@ -147,9 +147,10 @@ Add `C:\Program Files\7-Zip` to the system Path environment variable in Windows 
 
 ## Clone repository
 ```pwsh
-git clone https://gitlab.linphone.org/BC/public/linphone-desktop.git --recursive
+git clone https://github.com/Anatta336/linphone-desktop.git --recursive
 ```
-TODO: update to our repo.
+
+Note this pulls several submodules from the main project, in addition to our customised linphone-desktop project.
 
 ## Build
 
@@ -205,7 +206,7 @@ Make two edits to prevent the build system from searching for and linking the ma
 
 ### With Visual Studio generator
 
-From within the build directory, run this to configure the build process.
+From within the build directory, run this to configure the build process. This (usually) only needs to be re-run if make files have changed.
 
 ```cmd
 cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON
