@@ -208,6 +208,8 @@ Make two edits to prevent the build system from searching for and linking the ma
 
 From within the build directory, run this to configure the build process. This (usually) only needs to be re-run if make files have changed.
 
+If you have built successfully (without a change in project dependencies since then) you should be able to remove `-DENABLE_WINDOWS_TOOLS_CHECK=ON`
+
 ```cmd
 cmake .. -G "Visual Studio 17 2022" -A x64 -DENABLE_WINDOWS_TOOLS_CHECK=ON
 ```
