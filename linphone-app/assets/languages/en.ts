@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>applicationDescription</source>
-        <translation>A free (libre) SIP video-phone.</translation>
+        <translation>NM PBX Desktop Client - A SIP video-phone provided by Netmatters.</translation>
     </message>
     <message>
         <source>commandLineOptionIconified</source>

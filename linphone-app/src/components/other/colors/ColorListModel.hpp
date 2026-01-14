@@ -68,7 +68,7 @@ class ColorListModel : public ProxyListModel {
 		ADD_COLOR("h", "#687680", "Others")
 		
 		// Primary color.
-		ADD_COLOR("i", "#FF5E00", "Primary color.")//263D86
+		ADD_COLOR("i", "#25af4b", "Primary color.")// NM PBX green
 		ADD_COLOR_WITH_LINK_MODE("primary_d", "", "Primary color for deactivated items.", "i", ColorModel::CONTEXT_DEACTIVATED)
 		ADD_COLOR_WITH_LINK_MODE("m", "", "Primary color for clicked items.", "i", ColorModel::CONTEXT_PRESSED)
 		ADD_COLOR_WITH_LINK_MODE("b", "", "Primary color for hovered items.", "i", ColorModel::CONTEXT_HOVERED)
@@ -76,10 +76,10 @@ class ColorListModel : public ProxyListModel {
 		ADD_COLOR("n", "#A1A1A1", "Primary color for pressed button")
 		ADD_COLOR("o", "#D0D8DE", "Primary color for disabled button")
 		
-		ADD_COLOR("outgoing_bg","#FFEEE5","Outgoing message background")
+		ADD_COLOR("outgoing_bg","#E5F5EA","Outgoing message background")// NM PBX light green tint
 		ADD_COLOR("incoming_bg","#F3F3F3","Incoming message background")
 		
-		ADD_COLOR("outgoing_reply_mark_bg","#FF9E67","Outgoing reply message mark background")
+		ADD_COLOR("outgoing_reply_mark_bg","#6BC77E","Outgoing reply message mark background")// NM PBX green variant
 		ADD_COLOR("incoming_reply_mark_bg","#9B9B9B","Incoming reply message mark background")
 		
 		ADD_COLOR("reply_file_bg","#F4F4F4","File icon background in reply")
@@ -162,7 +162,7 @@ class ColorListModel : public ProxyListModel {
 		
 		ADD_COLOR_WITH_LINK("message_banner_bg", "", "Message banner background", "primary_accept")
 		ADD_COLOR("message_banner_fg", "#FFFFFF", "Message banner foreground")
-		ADD_COLOR("incall_message_banner_bg", "#FC4607", "Incall message banner background")
+		ADD_COLOR("incall_message_banner_bg", "#0e2826", "Incall message banner background")// NM PBX secondary
 		ADD_COLOR("incall_message_banner_fg", "#FFFFFF", "Incall message banner foreground")
 		
 		ADD_COLOR_WITH_LINK("ics_fg", "", "Special text color for ICS", "j")

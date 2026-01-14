@@ -37,7 +37,7 @@ DialogPlus {
 			width: parent.width
 			
 			Icon {
-				icon: 'linphone_logo'
+				icon: 'NMPBX_NMPBX_Main_Logo'
 				iconSize: parent.height
 			}
 			

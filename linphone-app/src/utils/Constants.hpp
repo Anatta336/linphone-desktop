@@ -38,7 +38,7 @@ public:
 	//----------------------------------------------------------------------------------
 
 	static constexpr char DefaultLocale[] = "en";
-	static constexpr char DefaultFont[] = "Noto Sans";
+	static constexpr char DefaultFont[] = "Poppins";
 	static constexpr int DefaultFontPointSize = 10;
 #ifdef __APPLE__
 	static constexpr char DefaultEmojiFont[] = "Apple Color Emoji";
@@ -67,8 +67,8 @@ public:
 	static constexpr char PasswordRecoveryUrl[] = "https://subscribe.linphone.org/recovery/email";
 	static constexpr char CguUrl[] = "https://www.linphone.org/en/terms-of-use";
 	static constexpr char PrivatePolicyUrl[] = "https://linphone.org/en/privacy-policy";
-	static constexpr char ContactUrl[] = "https://www.linphone.org/en/contact";
-	static constexpr char TranslationUrl[] = "https://weblate.linphone.org/projects/linphone/linphone-desktop-6-0/";
+	static constexpr char ContactUrl[] = "https://www.netmatters.co.uk/contact-us";
+	static constexpr char TranslationUrl[] = "";
 
 	static constexpr int MaxMosaicParticipants =
 	    6; // From 7, the mosaic quality will be limited to avoid useless computations
@@ -117,7 +117,7 @@ public:
 	//--------------------------------------------------------------------------------
 
 	static constexpr char LinphoneDomain[] = "sip.linphone.org"; // Use for checking if config are a Linphone
-	static constexpr char WindowIconPath[] = ":/assets/images/linphone_logo.svg";
+	static constexpr char WindowIconPath[] = ":/assets/images/NMPBX_NMPBX_Main_Logo.svg";
 	static constexpr char ApplicationMinimalQtVersion[] = "5.10.0";
 	static constexpr char DefaultConferenceURI[] =
 	    "sip:conference-factory@sip.linphone.org"; // Default for a Linphone account

@@ -8,6 +8,14 @@
 		<file>assets/fonts/NotoSans-hinted/NotoSansUI-Bold.ttf</file>
 		<file>assets/fonts/NotoSans-hinted/NotoSansUI-Italic.ttf</file>
 		<file>assets/fonts/NotoSans-hinted/NotoSansUI-Regular.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-Bold.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-BoldItalic.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-Medium.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-MediumItalic.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-Light.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-LightItalic.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-Regular.ttf</file>
+		<file>assets/fonts/Poppins/Poppins-Italic.ttf</file>
 		<file>assets/images/add_custom.svg</file>
 		<file>assets/images/add_participant_custom.svg</file>
 		<file>assets/images/admin_selected_custom.svg</file>
@@ -571,6 +579,13 @@
 		<file>ui/views/App/Styles/Settings/SettingsUiStyle.qml</file>
 		<file>ui/views/App/Styles/Settings/SettingsWindowStyle.qml</file>
 		<file>assets/images/linphone_logo.svg</file>
+		<file>assets/images/NMPBX_NMPBX_Main_Logo.svg</file>
+		<file>assets/images/NMPBX_NMPBX_Black_Logo.svg</file>
+		<file>assets/images/NMPBX_NMPBX_White_Logo.svg</file>
+		<file>assets/images/NMPBX_NMPBX_White_and_Green_Logo.svg</file>
+		<file>assets/images/NMPBX_X_Isolated.svg</file>
+		<file>assets/images/NMPBX_X_Isolated_Black.svg</file>
+		<file>assets/images/NMPBX_X_Isolated_White.svg</file>
 		<file>ui/dev-modules/Units/Units.qml</file>
 		<file>assets/icon.ico</file>
 	</qresource>
