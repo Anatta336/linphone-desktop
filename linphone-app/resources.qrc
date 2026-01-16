@@ -586,6 +586,7 @@
 		<file>assets/images/NMPBX_X_Isolated.svg</file>
 		<file>assets/images/NMPBX_X_Isolated_Black.svg</file>
 		<file>assets/images/NMPBX_X_Isolated_White.svg</file>
+		<file>assets/images/NMPBX_X_Isolated_Small.svg</file>
 		<file>ui/dev-modules/Units/Units.qml</file>
 		<file>assets/icon.ico</file>
 	</qresource>

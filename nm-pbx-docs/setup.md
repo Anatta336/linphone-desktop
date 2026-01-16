@@ -212,6 +212,15 @@ mkdir build
 cd build
 ```
 
+### All in one
+
+If you have the build working and just need to re-run the whole thing:
+```cmd
+cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_PARALLEL_LEVEL=10 -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build . --config RelWithDebInfo --parallel 10 && cmake --install . --config RelWithDebInfo
+```
+
+The following steps are this combined command broken down.
+
 ### Configure
 
 From within the build directory, run this to configure the build process. This (usually) only needs to be re-run if `make` files have changed.

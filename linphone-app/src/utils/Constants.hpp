@@ -117,7 +117,7 @@ public:
 	//--------------------------------------------------------------------------------
 
 	static constexpr char LinphoneDomain[] = "sip.linphone.org"; // Use for checking if config are a Linphone
-	static constexpr char WindowIconPath[] = ":/assets/images/NMPBX_X_Isolated.svg";
+	static constexpr char WindowIconPath[] = ":/assets/images/NMPBX_X_Isolated_Small.svg";
 	static constexpr char ApplicationMinimalQtVersion[] = "5.10.0";
 	static constexpr char DefaultConferenceURI[] =
 	    "sip:conference-factory@sip.linphone.org"; // Default for a Linphone account

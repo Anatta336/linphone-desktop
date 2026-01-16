@@ -302,16 +302,8 @@ void SettingsModel::setAssistantLogoutUrl(QString url) {
 }
 
 bool SettingsModel::isCguAccepted() const {
-#ifdef APPLICATION_VENDOR
-	QString applicationVendor = APPLICATION_VENDOR;
-#else
-	QString applicationVendor;
-#endif
-	return !!mConfig->getInt(
-	    UiSection, "read_and_agree_terms_and_privacy",
-	    (applicationVendor != "" && Constants::CguUrl != QString("") && Constants::PrivatePolicyUrl != QString("")
-	         ? 0
-	         : 1));
+	// Always return true - terms acceptance is when signing up to NM PBX.
+	return true;
 }
 
 void SettingsModel::acceptCgu(const bool accept) {

@@ -163,11 +163,6 @@
         <source>createAppSipAccount</source>
         <translation>CREA UN ACCOUNT %1</translation>
     </message>
-    <message>
-        <source>homeCgu</source>
-        <extracomment>&apos;I accept %1&apos;s %2terms of use%3 and %4privacy policy%5&apos; : where %1 is the vendor name and other %n are internal keywords that encapsulate links.</extracomment>
-        <translation>Accetto %2le condizioni di utilizzo e %4la politica sulla privacy%5 di %1</translation>
-    </message>
 </context>
 <context>
     <name>AssistantModel</name>

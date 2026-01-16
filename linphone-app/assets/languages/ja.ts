@@ -163,11 +163,6 @@
         <source>createAppSipAccount</source>
         <translation>%1アカウントを作成する</translation>
     </message>
-    <message>
-        <source>homeCgu</source>
-        <extracomment>&apos;I accept %1&apos;s %2terms of use%3 and %4privacy policy%5&apos; : where %1 is the vendor name and other %n are internal keywords that encapsulate links.</extracomment>
-        <translation>%1の%2利用規約%3と%4プライバシーポリシー%5に同意します</translation>
-    </message>
 </context>
 <context>
     <name>AssistantModel</name>
